@@ -1,5 +1,9 @@
 $tablet: map-get($breakpoints, 'tablet') - 1;
 
+.container {
+  padding-bottom: var(--nav-height);
+}
+
 @media (max-width: $tablet), (hover: none) {
   .container {
     position: fixed;

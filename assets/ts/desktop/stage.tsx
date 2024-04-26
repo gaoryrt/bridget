@@ -159,7 +159,7 @@ export default function Stage(props: {
           0
         ),
       zIndex: (i: number) => i,
-      scale: 0.6
+      scale: 0.5
     })
 
     if (_isOpen) {
@@ -267,7 +267,7 @@ export default function Stage(props: {
     const elsTrailInactive = getImagesFromIndexes(imgs, elsTrailInactiveIndexes)
     // shrink current
     tl.to(elc, {
-      scale: 0.6,
+      scale: 0.5,
       duration: 0.6,
       ease: 'power3.inOut'
     })

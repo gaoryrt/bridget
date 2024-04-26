@@ -1,0 +1,12 @@
+[next]
+other = "[ > ]"
+[prev]
+other = "[ < ]"
+[close]
+other = "[ x ]"
+[threshold]
+other = "ø"
+[404]
+other = "404"
+[loading]
+other = "[loading]"

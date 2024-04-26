@@ -1,58 +1,46 @@
 <nav>
   <div class="navArtist">
-    <a href="/">{{ site.Title }}</a>
+    <a href="/">
+      {{ site.Title }}</a>
   </div>
   <div class="links">
     {{- $index := 0 -}}
     {{- $currentIndex := -1 -}}
     {{- with partial "function/currentMenuItem.html" . -}}
-      {{- $currentIndex = sub .Weight 1 -}}
+    {{- $currentIndex = sub .Weight 1 -}}
     {{- end -}}
     {{- $menus := .Site.Menus.main -}}
     {{- $len := len $menus }}
     {{- range $menus -}}
-      {{- $url := .URL | relURL -}}
-      {{- if eq (add $index 1) $len -}}
-        <a
-          href="{{- .URL | relURL -}}"
-          class="link{{- if eq $index $currentIndex -}}
+    {{- $url := .URL | relURL -}}
+    {{- if eq (add $index 1) $len -}}
+    <a href="{{- .URL | relURL -}}" class="link{{- if eq $index $currentIndex -}}
             {{- printf " current" -}}
-          {{- end -}}"
-          >{{- .Title -}}</a
-        >
-      {{- else -}}
-        <a
-          href="{{- .URL | relURL -}}"
-          class="link{{- if eq $index $currentIndex -}}
+          {{- end -}}">{{- .Title -}}</a>
+    {{- else -}}
+    <a href="{{- .URL | relURL -}}" class="link{{- if eq $index $currentIndex -}}
             {{- printf " current" -}}
-          {{- end -}}"
-          >{{- .Title -}}</a
-        >,&nbsp
-      {{- end -}}
-      {{- $index = add $index 1 -}}
+          {{- end -}}">{{- .Title -}}</a>,&nbsp
+    {{- end -}}
+    {{- $index = add $index 1 -}}
     {{- end -}}
   </div>
   <div class="threshold">
     {{- $length := 0 -}}
     {{- with partial "function/getImageSlice.html" . -}}
-      {{- $length = len . -}}
+    {{- $length = len . -}}
     {{- end -}}
     <span>{{- i18n "threshold" | strings.FirstUpper -}}:</span>
     <span>
       <button class="dec">&#xFF0D;</button>
-      <span class="num"></span><span class="num"></span><span class="num"></span
-      ><span class="num"></span>
+      <span class="num"></span><span class="num"></span><span class="num"></span><span class="num"></span>
       <button class="inc">&#xFF0B;</button>
     </span>
   </div>
   <div class="index">
-    <span class="num">0</span><span class="num">0</span><span class="num">0</span
-    ><span class="num">0</span>
+    <span class="num">0</span><span class="num">0</span><span class="num">0</span><span class="num">0</span>
     <span>/</span>
-    <span class="num">{{- math.Floor (div $length 1000) -}}</span
-    ><span class="num">{{- mod (math.Floor (div $length 100)) 10 -}}</span
-    ><span class="num">{{- mod (math.Floor (div $length 10)) 10 -}}</span
-    ><span class="num">{{- mod $length 10 -}}</span>
+    <span class="num">{{- math.Floor (div $length 1000) -}}</span><span class="num">{{- mod (math.Floor (div $length 100)) 10 -}}</span><span class="num">{{- mod (math.Floor (div $length 10)) 10 -}}</span><span class="num">{{- mod $length 10 -}}</span>
   </div>
 </nav>
 {{- /* for threshold */ -}}
