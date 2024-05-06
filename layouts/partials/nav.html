@@ -13,14 +13,10 @@
     {{- $len := len $menus }}
     {{- range $menus -}}
     {{- $url := .URL | relURL -}}
-    {{- if eq (add $index 1) $len -}}
+    {{- if gt .Weight 0 -}}
     <a href="{{- .URL | relURL -}}" class="link{{- if eq $index $currentIndex -}}
             {{- printf " current" -}}
-          {{- end -}}">{{- .Title -}}</a>
-    {{- else -}}
-    <a href="{{- .URL | relURL -}}" class="link{{- if eq $index $currentIndex -}}
-            {{- printf " current" -}}
-          {{- end -}}">{{- .Title -}}</a>,&nbsp
+          {{- end -}}">{{- .Title -}}</a>&nbsp;
     {{- end -}}
     {{- $index = add $index 1 -}}
     {{- end -}}
