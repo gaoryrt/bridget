@@ -260,7 +260,7 @@ function Stage(props) {
     const elc = getImagesFromIndexes(imgs, [elcIndex])[0];
     const elsTrailInactive = getImagesFromIndexes(imgs, elsTrailInactiveIndexes);
     tl.to(elc, {
-      scale: 1,
+      scale: 0.62,
       duration: 0.6,
       ease: "power3.inOut"
     });
