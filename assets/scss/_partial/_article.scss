@@ -1,43 +1,127 @@
 article {
-  padding: var(--space-standard);
-  max-width: 25em;
-
-  p {
-    margin-bottom: 1em;
-  }
-
-  u {
-    text-decoration: underline;
-  }
-
-  > h1 {
-    font-size: 1.6em;
-  }
-
-  > h2 {
-    font-size: 1.5em;
-  }
-
-  > h3 {
-    font-size: 1.375em;
-  }
-
-  > h4 {
-    font-size: 1.25em;
-  }
-
-  > h5 {
-    font-size: 1.125em;
-  }
-
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+  word-wrap: break-word;
+  padding: 1em;
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-weight: bold;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace,
+      serif;
+    line-height: 1.3em;
     margin: 1.2rem 0;
+  }
+  h1::before {
+    font-weight: 900;
+    color: #000;
+    content: '# ';
+  }
+  h2::before {
+    font-weight: 900;
+    color: #000;
+    content: '.# ';
+  }
+  h3::before {
+    font-weight: 900;
+    color: #000;
+    content: '..# ';
+  }
+  h4::before {
+    font-weight: 900;
+    color: #000;
+    content: '...# ';
+  }
+  h5::before {
+    font-weight: 900;
+    color: #000;
+    content: '....# ';
+  }
+  h6::before {
+    font-weight: 900;
+    color: #000;
+    content: '.....# ';
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  pre {
+    padding: 2rem;
+    margin: 1.75rem 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    overflow: auto;
+  }
+  code[class*='language-'],
+  pre[class*='language-'],
+  pre code {
+    font-weight: 100;
+    text-shadow: none;
+    margin: 1.75rem 0;
+  }
+  a {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    .grid {
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+    .cell {
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+    }
+  }
+  p {
+    margin: 0 0 1.75rem;
+  }
+  hr {
+    width: 10%;
+    margin: 2rem auto;
+    border-bottom: 1px dashed;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0;
+    color: #778087;
+  }
+  table td,
+  table th {
+    vertical-align: top;
+    border: 1px solid #ccc;
+    line-height: 15px;
+    padding: 10px;
+  }
+  table thead th {
+    font-size: 10px;
+  }
+  table tbody td:first-child {
+    font-weight: 700;
+    color: #333;
+  }
+  blockquote {
+    border-left: 2px solid;
+    padding-left: 1em;
   }
 }
 
