@@ -1,9 +1,12 @@
 {{/* Title */}}
 {{- $page_title := "" -}}
 {{- with partial "function/currentMenuItem.html" . -}}
-  {{ $page_title = printf "%s" site.Title | printf "%s%s" " | " | printf "%s%s" .Title | printf "%s" }}
+
+{{ $page_title = printf "%s" site.Title | printf "%s%s" " | " | printf "%s%s" .Title | printf "%s" }}
 {{- end -}}
-<title>{{ $page_title }}</title>
+<title>
+  {{ $page_title }}
+</title>
 
 {{/* Basic */}}
 <meta name="Description" content="{{ site.Params.description }}" />
@@ -15,8 +18,14 @@
 <meta name="twitter:title" content="{{ $page_title }}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:description" content="{{ site.Params.description }}" />
+<meta property="og:description" content="{{ .Params.description }}" />
+
+{{ range .Params.ogImages }}
+<meta property="og:image" content="{{ . }}" />
+
+{{ end }}
 <meta name="twitter:description" content="{{ site.Params.description }}" />
 
 {{/* Generator */}}
+
 {{ hugo.Generator }}
