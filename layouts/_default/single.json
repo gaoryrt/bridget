@@ -12,7 +12,7 @@
       {{- $alt = . -}}
     {{- end -}}
     {{- $lores := .Fit ("700x700 png Lanczos q60") -}}
-    {{- $hires := .Resize (printf "%dx%d png" .Width .Height) -}}
+    {{- $hires := . -}}
     {{- $context.Scratch.Add "img" (dict
       "index" (int $index)
       "alt" (string $alt)
