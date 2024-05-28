@@ -12,7 +12,7 @@
     {{- with $params.unifiedAlt -}}
       {{- $alt = . -}}
     {{- end -}}
-    {{- $lores := .Fit ("700x700 png Lanczos q60") -}}
+    {{- $lores := .Fit ("700x465 png Lanczos q60") -}}
     {{- $hires := . -}}
     {{- if and (ne $mimeType "image/jpeg") (ne $mimeType "image/png") -}}
       {{- $hires := .Resize (printf "%dx%d jpg" .Width .Height) -}}
