@@ -6,13 +6,17 @@
   {{- $context.Scratch.Add "img" slice -}}
   {{- range sort . "Name" "desc" -}}
     {{- $image := . -}}
+    {{- $mimeType := .MediaType.Type -}}
     {{- $index = sub $index 1 -}}
     {{- $alt := .Name -}}
     {{- with $params.unifiedAlt -}}
       {{- $alt = . -}}
     {{- end -}}
     {{- $lores := .Fit ("700x700 png Lanczos q60") -}}
-    {{- $hires := .Process "jpeg" -}}
+    {{- $hires := . -}}
+    {{- if and (ne $mimeType "image/jpeg") (ne $mimeType "image/png") -}}
+      {{- $hires := .Resize (printf "%dx%d jpg" .Width .Height) -}}
+    {{- end -}}
     {{- $context.Scratch.Add "img" (dict
       "index" (int $index)
       "alt" (string $alt)
@@ -25,7 +29,7 @@
       )
     -}}
   {{- end -}}
-    {{ $context.Scratch.Get "img" | jsonify }}
+  {{ $context.Scratch.Get "img" | jsonify }}
 {{- else -}}
 []
 {{- end -}}
